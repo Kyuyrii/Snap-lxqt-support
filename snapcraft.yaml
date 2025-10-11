@@ -58,7 +58,6 @@ parts:
       cmake .. -DCMAKE_INSTALL_PREFIX=/usr
       make
       make install DESTDIR=$CRAFT_PART_INSTALL
-      mkdir -p $CRAFT_PART_INSTALL/usr/lib/x86_64-linux-gnu/qt6/plugins/styles/
-      cp $CRAFT_PART_INSTALL/snap/kde-qt6-core24-sdk/current/usr/lib/x86_64-linux-gnu/qt6/plugins/styles/libkvantum.so $CRAFT_PART_INSTALL/usr/lib/x86_64-linux-gnu/qt6/plugins/styles/
-    prime:
-      - usr
+      mkdir -p $CRAFT_PART_INSTALL/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/qt6/plugins/styles/
+      cp $CRAFT_PART_INSTALL/snap/kde-qt6-core24-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/qt6/plugins/styles/libkvantum.so $CRAFT_PART_INSTALL/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/qt6/plugins/styles/
+      rm -r $CRAFT_PART_INSTALL/snap/kde-qt6-core24-sdk/
