@@ -1,15 +1,16 @@
-The qt-style-kvantum Snap is a Snap that makes Kvantum available to Snap applications, but it's not quite as simple.
+The qt-style-kvantum Snap plugin provides Kvantum and the lxqt-qtplugin for Snap applications, but it's not that simple.
 
-Currently, Snap applications don't access the $HOME/.config/Kvantum folder; your Snap must have access to it, or the user must copy it to the Snap application's .config folder.
+Currently, Snap applications don't access the $HOME/.config/Kvantum and $HOME/.config/lxqt folders. Your Snap needs to have access to them, or the user needs to copy them to the Snap application's .config folder.
 
 After adding it, you may need to connect your Snap application to qt-style-kvantum. For example, in the case of melonds-emulator, use this command: sudo snap connect melonds-emulator:kvantum qt-style-kvantum
 
-If you want your application to have access to Kvantum, you need to add everything below.
+If you want your application to have access to Kvantum, you need to add all of the following. The environment must be used in the apps section.
 
 
 
-environment:
-  QT_PLUGIN_PATH: $SNAP/kvantum/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/qt6/plugins${QT_PLUGIN_PATH:+:$QT_PLUGIN_PATH}
+    environment:
+      LD_LIBRARY_PATH: $SNAP/kvantum/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:$LD_LIBRARY_PATH
+      QT_PLUGIN_PATH: $SNAP/kvantum/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/qt6/plugins:$QT_PLUGIN_PATH
 
 plugs:
   kvantum:
