@@ -1,23 +1,23 @@
-The qt-style-kvantum Snap plugin provides Kvantum and the lxqt-qtplugin for Snap applications, but it's not that simple.
+The lxqt-support content Snap provides Kvantum and the lxqt-qtplugin for Snap apps, but it's not that simple.
 
 Currently, Snap applications don't access the $HOME/.config/Kvantum and $HOME/.config/lxqt folders. Your Snap needs to have access to them, or the user needs to copy them to the Snap application's .config folder.
 
-After adding it, you may need to connect your Snap application to qt-style-kvantum. For example, in the case of melonds-emulator, use this command: sudo snap connect melonds-emulator:kvantum qt-style-kvantum
+After adding it, you may need to connect your Snap application to lxqt-support. For example, in the case of melonds-emulator, use this command: sudo snap connect melonds-emulator:lxqt-support lxqt-support
 
 If you want your application to have access to Kvantum, you need to add all of the following. The environment must be used in the apps section.
 
 
 
     environment:
-      LD_LIBRARY_PATH: $SNAP/kvantum/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:$LD_LIBRARY_PATH
-      QT_PLUGIN_PATH: $SNAP/kvantum/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/qt6/plugins:$QT_PLUGIN_PATH
+      LD_LIBRARY_PATH: $SNAP/lxqt-support/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:$LD_LIBRARY_PATH
+      QT_PLUGIN_PATH: $SNAP/lxqt-support/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/qt6/plugins:$QT_PLUGIN_PATH
 
 plugs:
-  kvantum:
-    content: kvantum
+  lxqt-support:
+    content: lxqt-support
     interface: content
-    target: $SNAP/kvantum
-    default-provider: qt-style-kvantum
+    target: $SNAP/lxqt-support
+    default-provider: lxqt-support
 
 layout:
   /usr/share/color-schemes:
