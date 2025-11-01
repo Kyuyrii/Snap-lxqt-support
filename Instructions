@@ -21,6 +21,6 @@ plugs:
 
 layout:
   /usr/share/color-schemes:
-    symlink: $SNAP/kvantum/usr/share/color-schemes
+    symlink: $SNAP/lxqt-support/usr/share/color-schemes
   /usr/share/Kvantum:
-    symlink: $SNAP/kvantum/usr/share/Kvantum
+    symlink: $SNAP/lxqt-support/usr/share/Kvantum
