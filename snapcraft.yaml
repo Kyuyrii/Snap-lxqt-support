@@ -139,7 +139,7 @@ parts:
   lxqt-build-tools:
     plugin: cmake
     source: https://github.com/lxqt/lxqt-build-tools.git
-    source-tag: 2.3.1
+    source-tag: 2.3.0
     build-snaps: *build-snaps
     build-environment: *build-environment
     cmake-parameters:
